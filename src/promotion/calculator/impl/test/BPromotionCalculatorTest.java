@@ -8,11 +8,18 @@ import promotion.calculator.impl.BPromotionCalculatorImpl;
 
 class BPromotionCalculatorTest {
 
+	BPromotionCalculatorImpl calculatorImpl = new BPromotionCalculatorImpl();
+
 	@Test
-	void test() {
-		BPromotionCalculatorImpl calculatorImpl = new BPromotionCalculatorImpl();
+	void testWithCorrectInput() {
 		int calculatePromotionlVal = calculatorImpl.calculatePromotionlVal(5);
-		assertEquals(230, calculatePromotionlVal);
+		assertEquals(120, calculatePromotionlVal);
+	}
+	
+	@Test
+	void testWithWrongInput() {
+		int calculatePromotionlVal = calculatorImpl.calculatePromotionlVal(5);
+		assertEquals(25, calculatePromotionlVal);
 	}
 
 }

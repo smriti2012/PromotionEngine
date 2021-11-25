@@ -8,11 +8,19 @@ import promotion.calculator.impl.APromotionCalculatorImpl;
 
 class APromotionCalculatorTest {
 
+	APromotionCalculatorImpl calculatorImpl = new APromotionCalculatorImpl();
+	
 	@Test
-	void testWithPositiveInput() {
-		APromotionCalculatorImpl calculatorImpl = new APromotionCalculatorImpl();
+	void testWithCorrectInput() {
+		
 		int calculatePromotionlVal = calculatorImpl.calculatePromotionlVal(5);
 		assertEquals(230, calculatePromotionlVal);
 	}
+	
+	@Test
+	void testWithWrongInput() {
+	int calculatePromotionlVal = calculatorImpl.calculatePromotionlVal(5);
+	assertEquals(290, calculatePromotionlVal);
+}
 
 }

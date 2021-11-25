@@ -8,11 +8,17 @@ import promotion.calculator.impl.CDPromotionCalculatorImpl;
 
 class CDPromotionCalculatorTest {
 
+	CDPromotionCalculatorImpl calculatorImpl = new CDPromotionCalculatorImpl();
+
 	@Test
-	void test() {
-		CDPromotionCalculatorImpl calculatorImpl = new CDPromotionCalculatorImpl();
-		int calculatePromotionlVal = calculatorImpl.calculatePromotionlVal(5,8);
-		assertEquals(230, calculatePromotionlVal);
+	void testWithCorrectInput() {
+		int calculatePromotionlVal = calculatorImpl.calculatePromotionlVal(5, 8);
+		assertEquals(195, calculatePromotionlVal);
 	}
 
+	@Test
+	void testWithWrongInput() {
+		int calculatePromotionlVal = calculatorImpl.calculatePromotionlVal(5, 8);
+		assertEquals(230, calculatePromotionlVal);
+	}
 }
