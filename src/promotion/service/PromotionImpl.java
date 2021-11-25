@@ -17,7 +17,6 @@ public class PromotionImpl {
 
 	public int calculateTotalOrderVal(Cart cart) {
 		Map<Character, Integer> productMap = new HashMap<Character, Integer>();
-		int totalPromotionalVal = 0;
 		List<Product> products = cart.getProducts();
 		products.stream().forEach(i -> {
 			if (productMap.containsKey(i.getSku()))
@@ -25,13 +24,8 @@ public class PromotionImpl {
 			else
 				productMap.put(i.getSku(), 1);
 		});
-		try {
-			totalPromotionalVal = calculator.totalPromotionalVal(productMap, new APromotionCalculatorImpl(),
-					new BPromotionCalculatorImpl(), new CDPromotionCalculatorImpl());
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return totalPromotionalVal;
+		return calculator.totalPromotionalVal(productMap, new APromotionCalculatorImpl(),
+				new BPromotionCalculatorImpl(), new CDPromotionCalculatorImpl());
 	}
 
 	public static void main(String args[]) {
